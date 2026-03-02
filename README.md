@@ -1,4 +1,4 @@
-# 🖥️ CIA ANALYST WORKSTATION DASHBOARD
+# CIA ANALYST WORKSTATION DASHBOARD
 
 > *"I can't go to Yemen. I'm an Analyst."*
 > — O. Redacted, GS-13, filed 2024-11-03, reviewed, **DENIED**
