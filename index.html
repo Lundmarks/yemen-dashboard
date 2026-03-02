@@ -44,7 +44,9 @@
   @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,65,0.4)}50%{box-shadow:0 0 0 5px rgba(0,255,65,0)}}
   @keyframes pulse-red{0%,100%{box-shadow:0 0 0 0 rgba(255,32,32,0.6)}50%{box-shadow:0 0 0 5px rgba(255,32,32,0)}}
   @keyframes pulse-amber{0%,100%{box-shadow:0 0 0 0 rgba(255,176,0,0.4)}50%{box-shadow:0 0 0 5px rgba(255,176,0,0)}}
-  /* YEMEN ALERT */
+  .globe-container{overflow:hidden;height:130px;position:relative;background:rgba(0,10,0,0.4);border:1px solid var(--green-faint);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  #globe-canvas{color:var(--green);white-space:pre;font-size:8px;line-height:1.1;font-family:'Share Tech Mono',monospace;}
+  .globe-label{position:absolute;bottom:4px;right:6px;font-size:8px;letter-spacing:1px;color:var(--red);font-family:'Orbitron',monospace;}
   .yemen-alert{border:2px solid var(--red);background:rgba(30,0,0,0.8);padding:15px;position:relative;overflow:hidden;}
   .yemen-alert::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,32,32,0.05),transparent);animation:scan 3s linear infinite;}
   @keyframes scan{to{left:100%}}
@@ -54,7 +56,7 @@
   .no-go-stamp{font-family:'Orbitron',monospace;font-weight:900;font-size:28px;color:var(--red);border:4px solid var(--red);padding:6px 12px;opacity:0.9;transform:rotate(-8deg);letter-spacing:2px;text-shadow:0 0 10px rgba(255,32,32,0.8);}
   .reason-list{list-style:none;margin:10px 0;}
   .reason-list li{padding:5px 0;font-size:12px;border-bottom:1px solid rgba(255,32,32,0.15);display:flex;align-items:flex-start;gap:8px;color:#ffaaaa;}
-  .reason-list li::before{content:'>';color:var(--red);flex-shrink:0;font-size:9px;margin-top:2px;}
+  .reason-list li::before{content:'&#9658;';color:var(--red);flex-shrink:0;font-size:9px;margin-top:2px;}
   .threat-meter{margin-top:8px;}
   .threat-meter-label{display:flex;justify-content:space-between;font-size:10px;color:var(--green-dim);margin-bottom:4px;}
   .meter-bar{height:16px;background:var(--green-faint);border:1px solid var(--green-dim);position:relative;overflow:hidden;}
@@ -62,26 +64,19 @@
   .meter-fill::after{content:'';position:absolute;top:0;right:0;width:4px;height:100%;background:#fff;opacity:0.8;animation:blink 0.4s step-end infinite;}
   .meter-value{text-align:right;font-family:'VT323',monospace;font-size:18px;color:var(--red);margin-top:2px;}
   .personal-note{margin-top:12px;padding:8px;background:rgba(0,50,0,0.4);border-left:3px solid var(--green-dim);font-size:11px;font-style:italic;color:var(--green-dim);line-height:1.5;}
-  /* INTEL */
-  .bulletin{overflow-y:auto;max-height:340px;scrollbar-width:thin;scrollbar-color:var(--green-dim) transparent;}
-  .bulletin-item{padding:8px 0;border-bottom:1px solid var(--green-faint);font-size:11px;animation:fadein 0.5s ease;}
-  @keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-  .b-time{color:var(--green-dim);font-size:10px;}
-  .b-source{color:var(--amber);font-size:10px;font-family:'Orbitron',monospace;letter-spacing:1px;}
-  .b-text{color:var(--green);margin-top:2px;line-height:1.4;}
-  .b-text.urgent{color:var(--red);}
+  .intel-item{padding:6px 0;border-bottom:1px solid var(--green-faint);font-size:11px;line-height:1.4;}
+  .intel-time{color:var(--green-dim);font-size:10px;margin-bottom:2px;}
+  .intel-text{color:var(--green);}
   .redacted{background:var(--green);color:transparent;user-select:none;padding:0 2px;}
-  /* MAP */
   .map-panel{grid-column:1/4;display:grid;grid-template-columns:1fr 220px;gap:10px;padding:0;border:none;background:none;}
   .map-panel::before{display:none;}
   .map-container{border:1px solid var(--green-dim);padding:10px;background:rgba(0,20,0,0.6);position:relative;}
   .map-container::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
   .map-svg-wrapper{position:relative;height:200px;background:rgba(0,10,0,0.5);border:1px solid var(--green-faint);overflow:hidden;display:flex;align-items:center;justify-content:center;}
-  .ascii-map{font-family:'Share Tech Mono',monospace;font-size:9px;line-height:1.2;color:var(--green-dim);white-space:pre;}
+  .ascii-map{font-family:'Share Tech Mono',monospace;font-size:9px;line-height:1.2;color:var(--green-dim);white-space:pre;position:relative;}
   .yemen-marker{position:absolute;bottom:20px;right:100px;color:var(--red);font-size:11px;font-family:'Orbitron',monospace;font-weight:900;animation:pulse-red 0.5s ease-in-out infinite;text-shadow:0 0 10px var(--red);}
   .no-fly-zone{position:absolute;bottom:10px;right:60px;width:120px;height:60px;border:2px dashed var(--red);opacity:0.4;border-radius:50%;animation:spin 20s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg)}}
-  /* ASSIGNMENTS */
   .assignment{padding:8px 0;border-bottom:1px solid var(--green-faint);font-size:11px;}
   .assignment:last-child{border-bottom:none;}
   .assignment-country{font-weight:bold;display:flex;justify-content:space-between;margin-bottom:3px;}
@@ -90,7 +85,6 @@
   .tag.green{border:1px solid var(--green-dim);color:var(--green);}
   .tag.amber{border:1px solid var(--amber);color:var(--amber);}
   .tag.declined{border:1px solid var(--red);color:var(--red);background:rgba(255,32,32,0.2);text-decoration:line-through;}
-  /* BOTTOM */
   .bottom-row{grid-column:1/4;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
   .stat-box{text-align:center;padding:12px;}
   .stat-number{font-family:'VT323',monospace;font-size:48px;line-height:1;display:block;}
@@ -105,121 +99,15 @@
   .footer{margin-top:12px;border-top:1px solid var(--green-dim);padding-top:8px;display:flex;justify-content:space-between;font-size:10px;color:var(--green-dim);letter-spacing:1px;}
   .panel:hover{box-shadow:0 0 15px rgba(0,255,65,0.1);}
   .yemen-alert:hover{box-shadow:0 0 20px rgba(255,32,32,0.2);}
+  .bulletin{overflow-y:auto;max-height:340px;scrollbar-width:thin;scrollbar-color:var(--green-dim) transparent;}
+  .bulletin-item{padding:8px 0;border-bottom:1px solid var(--green-faint);font-size:11px;animation:fadein 0.5s ease;}
+  @keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+  .b-time{color:var(--green-dim);font-size:10px;}
+  .b-source{color:var(--amber);font-size:10px;font-family:'Orbitron',monospace;letter-spacing:1px;}
+  .b-text{color:var(--green);margin-top:2px;line-height:1.4;}
+  .b-text.urgent{color:var(--red);}
   .sound-btn{position:fixed;top:12px;right:12px;z-index:10000;background:rgba(0,20,0,0.9);border:1px solid var(--green-dim);color:var(--green-dim);font-family:'Orbitron',monospace;font-size:9px;letter-spacing:2px;padding:5px 10px;cursor:pointer;}
   .sound-btn.active{color:var(--green);border-color:var(--green);}
-
-  /* FULL-WIDTH GLOBE SECTION */
-  .globe-section{
-    margin:10px 0;
-    border:1px solid var(--green-dim);
-    background:rgba(0,20,0,0.6);
-    position:relative;
-    overflow:hidden;
-  }
-  .globe-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
-  .globe-section-inner{
-    display:grid;
-    grid-template-columns:1fr 280px;
-    gap:0;
-  }
-  .globe-canvas-wrap{
-    position:relative;
-    background:rgba(0,8,0,0.7);
-    border-right:1px solid var(--green-dim);
-    overflow:hidden;
-    min-height:420px;
-  }
-  #globeCanvas{
-    display:block;
-    width:100%;
-    height:100%;
-  }
-  .globe-scan{
-    position:absolute;top:0;left:-100%;width:100%;height:100%;
-    background:linear-gradient(90deg,transparent,rgba(0,255,65,0.03),transparent);
-    animation:scan 4s linear infinite;pointer-events:none;
-  }
-  .globe-sidebar{
-    padding:12px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-  }
-  .globe-legend-item{
-    display:flex;align-items:flex-start;gap:8px;font-size:11px;padding:4px 0;
-    border-bottom:1px solid var(--green-faint);
-  }
-  .globe-legend-item:last-child{border-bottom:none;}
-  .legend-dot{
-    width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:2px;
-  }
-  .legend-dot.green{background:var(--green);box-shadow:0 0 6px var(--green);}
-  .legend-dot.red{background:var(--red);box-shadow:0 0 6px var(--red);}
-  .legend-dot.amber{background:var(--amber);box-shadow:0 0 6px var(--amber);}
-  .legend-dot.blue{background:#00aaff;box-shadow:0 0 6px #00aaff;}
-  .legend-name{color:var(--green);font-weight:bold;}
-  .legend-desc{color:var(--green-dim);font-size:10px;margin-top:1px;}
-
-  /* CHAT WINDOW */
-  .chat-section{
-    margin:10px 0;
-    border:1px solid var(--green-dim);
-    background:rgba(0,20,0,0.6);
-    position:relative;
-  }
-  .chat-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
-  .chat-header{
-    display:flex;align-items:center;gap:12px;
-    padding:10px 12px;
-    border-bottom:1px solid var(--green-faint);
-  }
-  .chat-avatar{
-    width:36px;height:36px;border:1px solid var(--green-dim);
-    display:flex;align-items:center;justify-content:center;font-size:20px;
-    background:var(--green-faint);flex-shrink:0;
-  }
-  .chat-status{font-size:9px;color:var(--green-dim);letter-spacing:1px;font-family:'Orbitron',monospace;}
-  .chat-messages{
-    height:260px;overflow-y:auto;padding:10px 12px;
-    scrollbar-width:thin;scrollbar-color:var(--green-dim) transparent;
-    display:flex;flex-direction:column;gap:10px;
-  }
-  .msg{max-width:78%;font-size:12px;line-height:1.5;}
-  .msg.from-dr{align-self:flex-start;}
-  .msg.from-user{align-self:flex-end;text-align:right;}
-  .msg-bubble{
-    display:inline-block;padding:7px 11px;
-    font-family:'Share Tech Mono',monospace;
-  }
-  .from-dr .msg-bubble{
-    background:rgba(0,60,0,0.5);border:1px solid var(--green-dim);
-    color:var(--green);border-radius:0 6px 6px 6px;
-  }
-  .from-user .msg-bubble{
-    background:rgba(0,30,0,0.7);border:1px solid var(--green-dim);
-    color:#aaffaa;border-radius:6px 0 6px 6px;
-  }
-  .msg-name{font-size:9px;color:var(--green-dim);font-family:'Orbitron',monospace;letter-spacing:1px;margin-bottom:3px;}
-  .from-user .msg-name{text-align:right;}
-  .msg-bubble.loading{color:var(--green-dim);}
-  .chat-input-row{
-    display:flex;gap:8px;padding:10px 12px;
-    border-top:1px solid var(--green-faint);
-  }
-  .chat-input{
-    flex:1;background:rgba(0,10,0,0.8);border:1px solid var(--green-dim);
-    color:var(--green);font-family:'Share Tech Mono',monospace;font-size:12px;
-    padding:6px 10px;outline:none;
-  }
-  .chat-input:focus{border-color:var(--green);box-shadow:0 0 8px rgba(0,255,65,0.1);}
-  .chat-input::placeholder{color:var(--green-faint);}
-  .chat-send{
-    background:rgba(0,40,0,0.8);border:1px solid var(--green-dim);
-    color:var(--green-dim);font-family:'Orbitron',monospace;font-size:9px;
-    letter-spacing:2px;padding:6px 14px;cursor:pointer;
-  }
-  .chat-send:hover{border-color:var(--green);color:var(--green);}
-  .chat-disclaimer{font-size:9px;color:var(--green-faint);padding:0 12px 8px;font-style:italic;}
 </style>
 </head>
 <body>
@@ -227,9 +115,8 @@
 <div class="classified-banner">&#9733; TOP SECRET // SCI // NOFORN // EYES ONLY &#9733;</div>
 <div class="ticker-wrap">
   <div class="ticker-label">FLASH</div>
-  <div class="ticker-text">HOUTHI ACTIVITY ELEVATED IN RED SEA CORRIDOR &nbsp;///&nbsp; DR. CARL JOHAN CLEARS ANALYST FOR ALL DUTIES EXCEPT "EXCESSIVE SUN EXPOSURE AND POOR LIFE CHOICES" &nbsp;///&nbsp; TALLBODA EUROPIZZA UNDER NEW MANAGEMENT: CIA CAFETERIA STILL WORSE &nbsp;///&nbsp; FIELD REQUEST TO SANA'A DENIED FOR 8TH TIME &nbsp;///&nbsp; RED HELMET SIGHTING CONFIRMED: OPERATOR JOHNSON D. FLAGGED AS REPLACEMENT &nbsp;///&nbsp; QUOTE OF THE DAY: "I CAN'T GO TO YEMEN, I'M AN ANALYST" &nbsp;///&nbsp; EMANUEL CHURCH TALLBODA PRAYING FOR SWIFT RESOLUTION &nbsp;///&nbsp; SUPERVISOR WILSON STILL DISAGREES &nbsp;///</div>
+  <div class="ticker-text">HOUTHI ACTIVITY ELEVATED IN RED SEA CORRIDOR &nbsp;///&nbsp; DR. CARL JOHAN CLEARS ANALYST FOR ALL DUTIES EXCEPT "EXCESSIVE SUN EXPOSURE AND POOR LIFE CHOICES" &nbsp;///&nbsp; TALLBODA EUROPIZZA UNDER NEW MANAGEMENT: CIA CAFETERIA STILL WORSE &nbsp;///&nbsp; FIELD REQUEST TO SANA'A STATION DENIED FOR 8TH TIME &nbsp;///&nbsp; RED HELMET SIGHTING CONFIRMED: OPERATOR JOHNSON D. FLAGGED AS REPLACEMENT CANDIDATE &nbsp;///&nbsp; QUOTE OF THE DAY: "I CAN'T GO TO YEMEN, I'M AN ANALYST" &nbsp;///&nbsp; EMANUEL CHURCH TALLBODA PRAYING FOR SWIFT RESOLUTION TO NEAR EAST SITUATION &nbsp;///&nbsp; SUPERVISOR WILSON STILL DISAGREES &nbsp;///</div>
 </div>
-
 <div class="wrapper">
   <div class="topbar">
     <div class="topbar-left">
@@ -245,9 +132,7 @@
       <div style="margin-top:4px;">SESSION: <span style="color:var(--green)">SECURE</span> <span class="blink">&#9612;</span></div>
     </div>
   </div>
-
   <div class="grid">
-    <!-- PROFILE -->
     <div class="panel">
       <div class="panel-title">// ANALYST PROFILE</div>
       <div class="profile-pic">&#128373;</div>
@@ -268,14 +153,19 @@
         <div class="status-indicator"><div class="dot red"></div> FIELD REQUEST PENDING</div>
         <div class="status-indicator"><div class="dot amber"></div> DR. CARL JOHAN: REVIEW</div>
       </div>
-      <div style="margin-top:12px;font-size:10px;color:var(--green-dim);border-top:1px solid var(--green-faint);padding-top:8px;">
+      <div style="margin-top:12px;">
+        <div style="font-size:9px;letter-spacing:2px;color:var(--green-dim);font-family:'Orbitron',monospace;margin-bottom:4px;">// GLOBAL THREAT SPHERE</div>
+        <div class="globe-container">
+          <div id="globe-canvas"></div>
+          <div class="globe-label">&#9888; YEM ACTIVE</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:10px;color:var(--green-dim);border-top:1px solid var(--green-faint);padding-top:8px;">
         ON-FILE STATEMENT:<br>
         <span style="color:#aaffaa;font-style:italic;">"I can't go to Yemen. I'm an Analyst."</span><br>
         <span style="font-size:9px;">Filed 2024-11-03. Reviewed by WILSON. DENIED.</span>
       </div>
     </div>
-
-    <!-- YEMEN ALERT -->
     <div class="panel yemen-alert">
       <div class="yemen-header">
         <div>
@@ -325,17 +215,13 @@
         </div>
       </div>
       <div class="personal-note">
-        ANALYST MEMO [UNCLASSIFIED]: Eight formal objections filed. Attached: medical note from Dr. Carl Johan (2024), State Dept. Level 4 advisory, two papers on analyst burnout, a Tallboda Europizza menu, a photograph of the Red Helmet left by Operator Johnson at the last debrief, and a letter from Emanuel Church Tallboda. Available for Riyadh, Amman, Erbil, Cyprus. Cannot go to Yemen. Am an Analyst. -- O.R.
+        ANALYST MEMO [UNCLASSIFIED]: Eight formal objections filed. Attached: medical note from Dr. Carl Johan (2024), State Dept. Level 4 advisory, two papers on analyst burnout, a Tallboda Europizza menu as evidence that food infrastructure matters operationally, a photograph of the Red Helmet left by Operator Johnson at the last debrief, and a letter from Emanuel Church Tallboda. I am available for Riyadh, Amman, Erbil, Cyprus. I cannot go to Yemen. I am an Analyst. -- O.R.
       </div>
     </div>
-
-    <!-- INTEL BULLETIN -->
     <div class="panel">
       <div class="panel-title">// LIVE INTEL BULLETIN</div>
       <div class="bulletin" id="bulletin"></div>
     </div>
-
-    <!-- MAP + ASSIGNMENTS -->
     <div class="map-panel">
       <div class="map-container">
         <div class="panel-title">// AREA OF OPERATIONS // NEAR EAST</div>
@@ -346,9 +232,9 @@
   .. LEBANON .....  .  .. ...              ....................
   .... ISRAEL .. JORDAN .....             ....................
   .............  .  .........            ....................
-  ........EGYPT...  ..........   KUWAIT -. ....................
-  .............  .  .  ......   ------  . ....................
-  .................  .....  QATAR -.  ....................
+  ........EGYPT...  ..........   KUWAIT -+ ....................
+  .............  .  .  ......   ------  | ....................
+  .................  .....  QATAR -+  ....................
   -------- RED SEA ----------------------------- GULF ---------------
   ....ERITREA.. ...SAUDI ARABIA ........... UAE ....OMAN .......
   .................................................... ............
@@ -367,16 +253,32 @@
       </div>
       <div class="panel">
         <div class="panel-title">// ASSIGNMENT QUEUE</div>
-        <div class="assignment"><div class="assignment-country">Jordan <span class="tag green">AVAILABLE</span></div><div class="assignment-detail">Amman liaison. 3 weeks. AC confirmed.</div></div>
-        <div class="assignment"><div class="assignment-country">Iraq <span class="tag amber">ELEVATED</span></div><div class="assignment-detail">Erbil support. 6 weeks. Manageable.</div></div>
-        <div class="assignment"><div class="assignment-country">Saudi Arabia <span class="tag green">PREFERRED</span></div><div class="assignment-detail">Riyadh embassy. Analysis role. Good hotels.</div></div>
-        <div class="assignment"><div class="assignment-country">Yemen <span class="tag declined">DECLINED x8</span></div><div class="assignment-detail" style="color:var(--red);">"I can't go to Yemen, I'm an Analyst."</div></div>
-        <div class="assignment"><div class="assignment-country">Cyprus <span class="tag green">VOLUNTEERED</span></div><div class="assignment-detail">Nicosia. Self-nominated x4.</div></div>
-        <div class="assignment"><div class="assignment-country">Red Helmet // JOHNSON <span class="tag amber">RECOMMEND</span></div><div class="assignment-detail">Yemen-rated. Willing. 78% avail.</div></div>
+        <div class="assignment">
+          <div class="assignment-country">Jordan <span class="tag green">AVAILABLE</span></div>
+          <div class="assignment-detail">Amman liaison rotation. 3 weeks. AC confirmed.</div>
+        </div>
+        <div class="assignment">
+          <div class="assignment-country">Iraq <span class="tag amber">ELEVATED</span></div>
+          <div class="assignment-detail">Erbil station support. 6 weeks. Manageable.</div>
+        </div>
+        <div class="assignment">
+          <div class="assignment-country">Saudi Arabia <span class="tag green">PREFERRED</span></div>
+          <div class="assignment-detail">Riyadh embassy. Analysis role. Good hotels.</div>
+        </div>
+        <div class="assignment">
+          <div class="assignment-country">Yemen <span class="tag declined">DECLINED x8</span></div>
+          <div class="assignment-detail" style="color:var(--red);">"I can't go to Yemen, I'm an Analyst." See memos 1-8.</div>
+        </div>
+        <div class="assignment">
+          <div class="assignment-country">Cyprus <span class="tag green">VOLUNTEERED</span></div>
+          <div class="assignment-detail">Nicosia post. Self-nominated. Four times now.</div>
+        </div>
+        <div class="assignment">
+          <div class="assignment-country">Red Helmet // JOHNSON <span class="tag amber">RECOMMEND</span></div>
+          <div class="assignment-detail">Field op. Yemen-rated. Willing. 78% avail.</div>
+        </div>
       </div>
     </div>
-
-    <!-- BOTTOM ROW -->
     <div class="bottom-row">
       <div class="panel stat-box">
         <span class="stat-number">8</span>
@@ -399,63 +301,16 @@
       </div>
     </div>
   </div>
-
-  <!-- FULL-WIDTH GLOBE -->
-  <div class="globe-section" style="margin-top:10px;">
-    <div style="padding:10px 12px 6px;border-bottom:1px solid var(--green-faint);display:flex;justify-content:space-between;align-items:center;">
-      <div class="panel-title" style="border:none;padding:0;margin:0;">// GLOBAL THREAT SPHERE // REAL-TIME ROTATION</div>
-      <div style="font-size:9px;color:var(--green-dim);font-family:'Orbitron',monospace;letter-spacing:2px;">COORD: WGS84 // PROJ: ORTHOGRAPHIC</div>
-    </div>
-    <div class="globe-section-inner">
-      <div class="globe-canvas-wrap">
-        <canvas id="globeCanvas"></canvas>
-        <div class="globe-scan"></div>
-      </div>
-      <div class="globe-sidebar">
-        <div class="panel-title" style="margin-bottom:6px;">// MARKED LOCATIONS</div>
-        <div id="legendContainer"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- DR CARL JOHAN CHAT -->
-  <div class="chat-section" style="margin-top:10px;">
-    <div class="chat-header">
-      <div class="chat-avatar">&#128084;</div>
-      <div>
-        <div style="font-family:'Orbitron',monospace;font-size:11px;font-weight:700;letter-spacing:2px;">DR. CARL JOHAN</div>
-        <div class="chat-status">SECURE LINE // LINKOPING MEDICAL DISTRICT // <span style="color:var(--green);">ONLINE</span></div>
-      </div>
-      <div style="margin-left:auto;font-size:9px;color:var(--green-dim);font-family:'Orbitron',monospace;letter-spacing:1px;text-align:right;">
-        CHANNEL: ENCRYPTED<br>CLEARANCE: MED-3
-      </div>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="msg from-dr">
-        <div class="msg-name">DR. CARL JOHAN // 06:02 ZULU</div>
-        <div class="msg-bubble">Good morning. I have already submitted my note to HR this week. I assume you are aware. For the record: I stand by it.</div>
-      </div>
-    </div>
-    <div class="chat-input-row">
-      <input class="chat-input" id="chatInput" type="text" placeholder="Type a message to Dr. Carl Johan..." autocomplete="off" />
-      <button class="chat-send" onclick="sendChat()">SEND</button>
-    </div>
-    <div class="chat-disclaimer">// SECURE MEDICAL CHANNEL // ALL COMMUNICATIONS LOGGED // DR. CARL JOHAN IS AN AI ASSISTANT ROLEPLAYING AS A FICTIONAL CHARACTER</div>
-  </div>
-
   <div class="footer">
     <span>HANDLE VIA TALENT KEYHOLE CHANNELS ONLY</span>
     <span class="typing">TERMINAL ACTIVE</span>
     <span>PROPERTY OF A TOTALLY REAL AND DEFINITELY NOT FICTIONAL GOV. AGENCY // TRESPASSERS WILL BE DEBRIEFED FOR 6 HOURS</span>
   </div>
 </div>
-
 <script>
-// CLOCK
 function updateClock(){var n=new Date();document.getElementById('clock').textContent=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0');}
 setInterval(updateClock,1000);updateClock();
 
-// SOUND
 var soundEnabled=false,audioCtx=null,ambientNode=null,humOsc=null;
 function initAudio(){if(audioCtx)return;audioCtx=new(window.AudioContext||window.webkitAudioContext)();}
 function startAmbient(){
@@ -471,280 +326,84 @@ function startAmbient(){
   ambientNode.start();humOsc.start();
 }
 function stopAmbient(){try{if(ambientNode)ambientNode.stop();}catch(e){}try{if(humOsc)humOsc.stop();}catch(e){}ambientNode=null;humOsc=null;}
-function playBeep(f,dur,vol){if(!soundEnabled||!audioCtx)return;var o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=f;o.type='square';g.gain.setValueAtTime(vol||0.07,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+dur);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+dur);}
+function playBeep(f,dur,vol){
+  if(!soundEnabled||!audioCtx)return;
+  var o=audioCtx.createOscillator(),g=audioCtx.createGain();
+  o.frequency.value=f;o.type='square';
+  g.gain.setValueAtTime(vol||0.07,audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+dur);
+  o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+dur);
+}
 function playAlert(){[880,660,880,440].forEach(function(f,i){setTimeout(function(){playBeep(f,0.15,0.09);},i*120);});}
-function toggleSound(){initAudio();soundEnabled=!soundEnabled;var btn=document.getElementById('soundBtn');if(soundEnabled){startAmbient();btn.textContent='♪ SOUND: ON';btn.classList.add('active');playBeep(440,0.2,0.09);}else{stopAmbient();btn.textContent='♪ SOUND: OFF';btn.classList.remove('active');}}
+function toggleSound(){
+  initAudio();soundEnabled=!soundEnabled;
+  var btn=document.getElementById('soundBtn');
+  if(soundEnabled){startAmbient();btn.textContent='♪ SOUND: ON';btn.classList.add('active');playBeep(440,0.2,0.09);}
+  else{stopAmbient();btn.textContent='♪ SOUND: OFF';btn.classList.remove('active');}
+}
 document.addEventListener('keydown',function(){if(soundEnabled)playBeep(1100+Math.random()*200,0.03,0.03);});
 
-// ============================================================
-// GLOBE (Canvas-based, large, annotated)
-// ============================================================
-var locations = [
-  // lat, lon, label, color, note, tier
-  {lat:15.5, lon:47.5,  label:"YEMEN",         color:"#ff2020", note:"DO NOT DEPLOY",            tier:0},
-  {lat:58.41,lon:15.62, label:"TALLBODA",       color:"#00ffff", note:"Linkoping, Sweden. Home.",  tier:1},
-  {lat:58.41,lon:15.62, label:"EUROPIZZA",      color:"#ffff00", note:"Tallboda. Best pizza.",     tier:2},
-  {lat:58.41,lon:15.62, label:"EMANUEL CHURCH", color:"#aaffff", note:"Tallboda. Sundays.",        tier:3},
-  {lat:51.5, lon:-0.12, label:"LONDON",         color:"#00ff41", note:"Friendly. Liaison.",        tier:1},
-  {lat:38.9, lon:-77.0, label:"LANGLEY",        color:"#00ff41", note:"HQ. Analyst's desk.",       tier:1},
-  {lat:33.5, lon:36.3,  label:"DAMASCUS",       color:"#ffb000", note:"Contested. Monitor.",       tier:1},
-  {lat:33.3, lon:44.4,  label:"BAGHDAD",        color:"#ffb000", note:"Elevated. Manageable.",     tier:1},
-  {lat:35.7, lon:51.4,  label:"TEHRAN",         color:"#ff2020", note:"Hostile. Do not enter.",    tier:1},
-  {lat:31.9, lon:35.2,  label:"AMMAN",          color:"#00ff41", note:"Friendly. AC confirmed.",   tier:1},
-  {lat:24.7, lon:46.7,  label:"RIYADH",         color:"#00ff41", note:"Preferred. Good hotels.",   tier:1},
-  {lat:35.1, lon:33.4,  label:"NICOSIA",        color:"#00ff41", note:"Cyprus. Self-nominated x4.",tier:1},
-  {lat:36.2, lon:44.0,  label:"ERBIL",          color:"#00ff41", note:"Fine, actually.",           tier:1},
-  {lat:55.75,lon:37.6,  label:"MOSCOW",         color:"#ff2020", note:"Hostile.",                  tier:1},
-  {lat:40.0, lon:116.4, label:"BEIJING",        color:"#ff2020", note:"Hostile.",                  tier:1},
-  {lat:48.85,lon:2.35,  label:"PARIS",          color:"#00ff41", note:"Liaison. Good food.",       tier:1},
-];
-
-var canvas = document.getElementById('globeCanvas');
-var ctx = canvas.getContext('2d');
-var globeAngle = 0;
-var SPEED = 0.004; // slow rotation
-
-// Land polygons as lat/lon arrays (simplified continents)
-var continents = [
-  // Europe
-  [[71,28],[70,20],[65,14],[60,5],[55,-6],[44,-9],[36,-6],[36,3],[41,13],[45,14],[48,17],[55,24],[60,25],[65,27],[70,28],[71,28]],
-  // Africa
-  [[37,10],[30,32],[15,42],[10,45],[0,42],[-10,40],[-26,33],[-35,18],[-35,27],[-27,32],[-18,36],[-5,39],[10,40],[15,42],[37,10]],
-  // Asia (simplified)
-  [[70,28],[70,60],[70,100],[65,140],[55,140],[45,135],[30,120],[20,110],[10,105],[5,100],[0,104],[5,97],[15,80],[22,70],[25,57],[30,48],[40,48],[55,60],[70,60],[70,28]],
-  // Middle East
-  [[37,36],[30,48],[22,58],[15,50],[12,43],[12,50],[22,58],[30,48],[37,36]],
-  // North America
-  [[70,-140],[70,-95],[60,-65],[45,-65],[25,-80],[15,-88],[10,-85],[8,-77],[10,-75],[5,-77],[0,-77],[5,-75],[10,-73],[20,-72],[30,-80],[45,-65],[60,-65],[70,-65],[72,-90],[72,-140],[70,-140]],
-  // South America
-  [[10,-75],[0,-50],[-5,-35],[-20,-40],[-35,-58],[-55,-65],[-55,-67],[-45,-73],[-35,-73],[-20,-70],[-5,-80],[5,-77],[10,-75]],
-  // Australia
-  [[-15,130],[-20,120],[-30,115],[-35,117],[-35,140],[-40,148],[-30,153],[-20,148],[-15,130]],
-];
-
-function toXY(lat, lon, angle, cx, cy, R) {
-  var phi = lat * Math.PI / 180;
-  var theta = lon * Math.PI / 180 + angle;
-  var x = R * Math.cos(phi) * Math.sin(theta);
-  var y = -R * Math.sin(phi);
-  var z = R * Math.cos(phi) * Math.cos(theta);
-  return {x: cx + x * 1.0, y: cy + y * 1.0, z: z};
+var globeEl=document.getElementById('globe-canvas');
+var GW=30,GH=13,GR=5.8,gAngle=0;
+var land=[[51,0],[48,2],[52,13],[55,24],[60,11],[64,27],[41,12],[40,23],[39,-8],[42,-3],[10,20],[0,25],[-10,30],[-25,28],[5,-5],[15,0],[20,10],[30,30],[35,10],[35,45],[25,50],[30,60],[20,80],[25,90],[30,105],[35,120],[55,60],[50,80],[45,100],[60,90],[55,40],[40,70],[60,30],[40,45],[32,35],[28,44],[24,45],[20,40],[22,58],[25,55],[40,-90],[50,-100],[55,-120],[45,-75],[30,-90],[35,-80],[60,-110],[70,-100],[-10,-50],[-20,-45],[-30,-60],[-5,-35],[5,-55],[-25,133],[-30,120],[-35,150],[-20,145]];
+var yemPts=[[15,48],[16,46],[14,45],[17,50],[13,46],[15,44]];
+function proj(lat,lon,ang){var phi=lat*Math.PI/180,th=lon*Math.PI/180+ang;return{x:GR*Math.cos(phi)*Math.sin(th),y:GR*Math.sin(phi),z:GR*Math.cos(phi)*Math.cos(th)};}
+function drawGlobe(ang){
+  var g=[];for(var r=0;r<GH;r++)g.push(new Array(GW).fill(' '));
+  for(var a=0;a<360;a+=3){var rad=a*Math.PI/180,sx=Math.round(GW/2+GR*1.9*Math.cos(rad)),sy=Math.round(GH/2-GR*Math.sin(rad));if(sx>=0&&sx<GW&&sy>=0&&sy<GH)g[sy][sx]='.';}
+  for(var lat=-60;lat<=60;lat+=30)for(var lon=-180;lon<=180;lon+=10){var p=proj(lat,lon,ang);if(p.z>0){var sx=Math.round(GW/2+p.x*1.9),sy=Math.round(GH/2-p.y);if(sx>=0&&sx<GW&&sy>=0&&sy<GH&&g[sy][sx]===' ')g[sy][sx]='.';}};
+  for(var lon=-180;lon<=180;lon+=30)for(var lat=-80;lat<=80;lat+=10){var p=proj(lat,lon,ang);if(p.z>0){var sx=Math.round(GW/2+p.x*1.9),sy=Math.round(GH/2-p.y);if(sx>=0&&sx<GW&&sy>=0&&sy<GH&&g[sy][sx]===' ')g[sy][sx]='.';}};
+  for(var li=0;li<land.length;li++){var p=proj(land[li][0],land[li][1],ang);if(p.z>0){var sx=Math.round(GW/2+p.x*1.9),sy=Math.round(GH/2-p.y);if(sx>=0&&sx<GW&&sy>=0&&sy<GH)g[sy][sx]='#';}};
+  var yc=[];
+  for(var yi=0;yi<yemPts.length;yi++){var p=proj(yemPts[yi][0],yemPts[yi][1],ang);if(p.z>0){var sx=Math.round(GW/2+p.x*1.9),sy=Math.round(GH/2-p.y);if(sx>=0&&sx<GW&&sy>=0&&sy<GH){g[sy][sx]='\x00';yc.push([sy,sx]);}}}
+  var html='';
+  for(var r=0;r<GH;r++){
+    for(var c=0;c<GW;c++){
+      var isY=yc.some(function(yx){return yx[0]===r&&yx[1]===c;});
+      if(isY)html+='<span style="color:#ff2020;text-shadow:0 0 5px #ff0000;font-weight:bold;">X</span>';
+      else if(g[r][c]==='#')html+='<span style="color:#00ff41;">&#9608;</span>';
+      else if(g[r][c]==='.')html+='<span style="color:#003308;">&#183;</span>';
+      else html+=' ';
+    }html+='\n';
+  }return html;
 }
-
-function resizeCanvas() {
-  var wrap = canvas.parentElement;
-  canvas.width = wrap.clientWidth;
-  canvas.height = wrap.clientHeight || 420;
-}
-
-function drawGlobeFrame(angle) {
-  resizeCanvas();
-  var W = canvas.width, H = canvas.height;
-  var cx = W / 2, cy = H / 2;
-  var R = Math.min(W, H) * 0.42;
-
-  ctx.clearRect(0, 0, W, H);
-
-  // Background glow
-  var bg = ctx.createRadialGradient(cx, cy, R*0.1, cx, cy, R*1.1);
-  bg.addColorStop(0, 'rgba(0,40,0,0.3)');
-  bg.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = bg;
-  ctx.beginPath();
-  ctx.arc(cx, cy, R*1.1, 0, Math.PI*2);
-  ctx.fill();
-
-  // Sphere base
-  var grad = ctx.createRadialGradient(cx-R*0.2, cy-R*0.2, R*0.05, cx, cy, R);
-  grad.addColorStop(0, 'rgba(0,30,0,0.9)');
-  grad.addColorStop(1, 'rgba(0,8,0,0.98)');
-  ctx.beginPath();
-  ctx.arc(cx, cy, R, 0, Math.PI*2);
-  ctx.fillStyle = grad;
-  ctx.fill();
-  ctx.strokeStyle = 'rgba(0,180,60,0.3)';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // Clip to sphere
-  ctx.save();
-  ctx.beginPath();
-  ctx.arc(cx, cy, R, 0, Math.PI*2);
-  ctx.clip();
-
-  // Lat/lon grid
-  ctx.strokeStyle = 'rgba(0,80,0,0.25)';
-  ctx.lineWidth = 0.5;
-  // Latitude lines
-  for (var lat = -80; lat <= 80; lat += 20) {
-    ctx.beginPath();
-    var first = true;
-    for (var lon = -180; lon <= 180; lon += 3) {
-      var p = toXY(lat, lon, angle, cx, cy, R);
-      if (p.z > 0) {
-        if (first) { ctx.moveTo(cx+p.x, cy+p.y); first=false; }
-        else ctx.lineTo(cx+p.x, cy+p.y);
-      } else { first = true; }
-    }
-    ctx.stroke();
-  }
-  // Longitude lines
-  for (var lo = -180; lo < 180; lo += 20) {
-    ctx.beginPath();
-    first = true;
-    for (var la = -90; la <= 90; la += 2) {
-      var p = toXY(la, lo, angle, cx, cy, R);
-      if (p.z > 0) {
-        if (first) { ctx.moveTo(cx+p.x, cy+p.y); first=false; }
-        else ctx.lineTo(cx+p.x, cy+p.y);
-      } else { first=true; }
-    }
-    ctx.stroke();
-  }
-
-  // Draw continents
-  for (var ci = 0; ci < continents.length; ci++) {
-    var poly = continents[ci];
-    var pts = [];
-    for (var pi = 0; pi < poly.length; pi++) {
-      pts.push(toXY(poly[pi][0], poly[pi][1], angle, cx, cy, R));
-    }
-    ctx.beginPath();
-    var started = false;
-    for (var pi2 = 0; pi2 < pts.length; pi2++) {
-      if (pts[pi2].z > 0) {
-        if (!started) { ctx.moveTo(cx+pts[pi2].x, cy+pts[pi2].y); started=true; }
-        else ctx.lineTo(cx+pts[pi2].x, cy+pts[pi2].y);
-      }
-    }
-    ctx.closePath();
-    ctx.fillStyle = 'rgba(0,120,30,0.55)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(0,200,50,0.4)';
-    ctx.lineWidth = 0.8;
-    ctx.stroke();
-  }
-
-  ctx.restore();
-
-  // Sphere rim glow
-  ctx.beginPath();
-  ctx.arc(cx, cy, R, 0, Math.PI*2);
-  ctx.strokeStyle = 'rgba(0,255,65,0.15)';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Draw location markers and labels
-  var labelData = [];
-  for (var li = 0; li < locations.length; li++) {
-    var loc = locations[li];
-    var p = toXY(loc.lat, loc.lon, angle, cx, cy, R);
-    if (p.z > -0.1) {
-      var alpha = Math.max(0, p.z);
-      var sx = cx + p.x, sy = cy + p.y;
-
-      // Dot
-      var dotR = loc.tier === 0 ? 6 : 4;
-      if (loc.tier > 1) dotR = 3;
-      ctx.globalAlpha = alpha;
-      ctx.beginPath();
-      ctx.arc(sx, sy, dotR, 0, Math.PI*2);
-      ctx.fillStyle = loc.color;
-      ctx.fill();
-
-      // Pulse ring for tier-0 (Yemen)
-      if (loc.tier === 0) {
-        var pulse = (Math.sin(Date.now()*0.004)*0.5+0.5);
-        ctx.beginPath();
-        ctx.arc(sx, sy, dotR + 4 + pulse*8, 0, Math.PI*2);
-        ctx.strokeStyle = loc.color;
-        ctx.lineWidth = 1.5;
-        ctx.globalAlpha = alpha * (1-pulse*0.7);
-        ctx.stroke();
-      }
-
-      // Store label for later rendering (avoid clipping)
-      if (loc.tier <= 1 || loc.label === "EUROPIZZA" || loc.label === "TALLBODA") {
-        labelData.push({sx:sx, sy:sy, loc:loc, alpha:alpha});
-      }
-      ctx.globalAlpha = 1;
-    }
-  }
-
-  // Draw labels on top (outside clip)
-  ctx.font = '9px Orbitron, monospace';
-  for (var ldi = 0; ldi < labelData.length; ldi++) {
-    var ld = labelData[ldi];
-    ctx.globalAlpha = Math.min(1, ld.alpha * 1.5);
-    var lx = ld.sx + 8, ly = ld.sy - 4;
-
-    // Background
-    var tw = ctx.measureText(ld.loc.label).width;
-    ctx.fillStyle = 'rgba(0,8,0,0.85)';
-    ctx.fillRect(lx-2, ly-9, tw+6, 13);
-
-    // Text
-    ctx.fillStyle = ld.loc.color;
-    ctx.fillText(ld.loc.label, lx, ly);
-    ctx.globalAlpha = 1;
-  }
-}
-
-function animateGlobe() {
-  drawGlobeFrame(globeAngle);
-  globeAngle += SPEED;
-  requestAnimationFrame(animateGlobe);
-}
-
-// Build legend
-var legendContainer = document.getElementById('legendContainer');
-var shownLabels = {};
-locations.forEach(function(loc) {
-  if (shownLabels[loc.label]) return;
-  shownLabels[loc.label] = true;
-  var div = document.createElement('div');
-  div.className = 'globe-legend-item';
-  div.innerHTML = '<div class="legend-dot" style="background:'+loc.color+';box-shadow:0 0 6px '+loc.color+';"></div>'
-    + '<div><div class="legend-name">'+loc.label+'</div><div class="legend-desc">'+loc.note+'</div></div>';
-  legendContainer.appendChild(div);
-});
-
-window.addEventListener('resize', function() { resizeCanvas(); });
+function animateGlobe(){globeEl.innerHTML=drawGlobe(gAngle);gAngle+=0.022;requestAnimationFrame(animateGlobe);}
 animateGlobe();
 
-// ============================================================
-// BULLETIN BOARD
-// ============================================================
 var bulletinEl=document.getElementById('bulletin');
 var bulletins=[
-  {time:'06:02',source:'HUMINT // SANAA',text:'Asset FALCON-7 reports increased checkpoints route Alpha. Cover: pizza delivery. No Europizza franchise available in AO.',urgent:false},
-  {time:'06:07',source:'MED // DR. CARL JOHAN',text:'Analyst O.R. annual review complete. Cleared for all duties. Addendum: "Patient strongly advised against Yemen for third consecutive year. His concerns are, clinically, legitimate."',urgent:false},
+  {time:'06:02',source:'HUMINT // SANAA',text:'Asset FALCON-7 reports increased checkpoints route Alpha. Cover: pizza delivery. No Europizza franchise available in AO for comparison.',urgent:false},
+  {time:'06:07',source:'MED // DR. CARL JOHAN',text:'Analyst O.R. annual review: cleared for all duties. Addendum: "Patient strongly advised against Yemen for third consecutive year. His concerns are, clinically, legitimate."',urgent:false},
   {time:'06:14',source:'SIGINT // RED SEA',text:'Maritime intercept: 3x vessels boarded. Manifest: <span class="redacted">XXXXXXXXXXX</span>. Red Helmet operator on deck. No incidents.',urgent:false},
   {time:'06:18',source:'ADMIN // HR',text:'REMINDER: Analyst O.R. vacation request (weeks 14-18, Cyprus) DENIED for 4th time. Conflicts with Yemen deployment window per Supervisor Wilson.',urgent:true},
   {time:'06:22',source:'FIELD // JOHNSON D.',text:'Operator Johnson D. (Red Helmet) confirms availability for SANDTRAP. Quote: "I\'ll go wherever. Yemen sounds fine." Supervisor WILSON visibly relieved.',urgent:false},
   {time:'06:29',source:'INTEL // NEAR EAST',text:'Houthi drone activity elevated. Threat raised to SEVERE. Analysis requested from O.R. O.R.: "Analyzing from Langley. As an Analyst. That is my role."',urgent:true},
   {time:'06:35',source:'COMMUNITY // TALLBODA',text:'Tallboda Europizza confirms new delivery partnership with Swedish Armed Forces. CIA cafeteria contract under review. O.R. has filed food quality grievance #4.',urgent:false},
-  {time:'06:41',source:'SPIRITUAL // COMMS',text:'Emanuel Church Tallboda: Sunday service confirmed 09:00. Analyst O.R. has booked pew for next 3 consecutive Sundays. Dates coincide precisely with Yemen deployment windows.',urgent:false},
+  {time:'06:41',source:'SPIRITUAL // COMMS',text:'Emanuel Church Tallboda: Sunday service confirmed 09:00. Analyst O.R. has booked a pew for the next 3 consecutive Sundays. Dates coincide precisely with Yemen deployment windows.',urgent:false},
   {time:'06:48',source:'FLASH // PRIORITY',text:'Director requests field analyst for SANDTRAP. O.R. flagged primary. O.R. response: "I can\'t go to Yemen, I\'m an Analyst." Objection #9 logged.',urgent:true},
-  {time:'06:55',source:'HUMINT // ERBIL',text:'Erbil station: "fine, actually." O.R. has pre-submitted availability for Erbil. Also Cyprus. Also Riyadh. Also literally anywhere else.',urgent:false},
-  {time:'07:03',source:'MED // DR. CARL JOHAN',text:'Supplemental note to HR: "I have reviewed the case again. My recommendation is unchanged. Why does this keep coming up? Send the one with the Red Helmet."',urgent:false},
-  {time:'07:11',source:'FIELD // RED HELMET',text:'Operator Johnson D. at staging area, Red Helmet secured. Quote: "Yemen\'s not that bad." O.R. unavailable; confirmed at Emanuel Church.',urgent:false},
+  {time:'06:55',source:'HUMINT // ERBIL',text:'Erbil station chief: situation "fine, actually." O.R. has pre-submitted availability for Erbil. Also Cyprus. Also Riyadh. Also literally anywhere with functioning pizza.',urgent:false},
+  {time:'07:03',source:'MED // DR. CARL JOHAN',text:'Supplemental note to HR: "I have reviewed the case again. My recommendation is unchanged. Also -- why does this keep coming up? Send the one with the Red Helmet."',urgent:false},
+  {time:'07:11',source:'FIELD // RED HELMET',text:'Operator Johnson D. at staging area, Red Helmet secured. Quote: "Yemen\'s not that bad." O.R. unavailable; at Emanuel Church.',urgent:false},
   {time:'07:18',source:'SIGINT // INTERCEPT',text:'<span class="redacted">XXXXXXXXXXXXXXXX</span> moving toward <span class="redacted">XXXXXX</span>. Secondary <span class="redacted">XXXX</span> confirmed via OSINT. Pattern matches prior 3 cycles.',urgent:false},
   {time:'07:24',source:'ADMIN // TRAVEL',text:'Yemen: one seat reserved outbound flight. Name field: "REDACTED, O." O.R. is aware. O.R. has filed objection #10. Contents include a map of Tallboda and a sworn affidavit.',urgent:true},
   {time:'07:31',source:'COMMUNITY // INTEL',text:'Tallboda Europizza: new "Red Sea Special" calzone on menu. Dr. Carl Johan advises against excess sodium. O.R. orders two. Names one "The Yemen Alternative".',urgent:false},
-  {time:'07:39',source:'FLASH // OBJECTION #10',text:'O.R. objection #10 received: sworn affidavit, Dr. Carl Johan letter, annotated Europizza menu, Emanuel Church letter, photo of Red Helmet. Status: PENDING REVIEW.',urgent:true},
+  {time:'07:39',source:'FLASH // OBJECTION #10',text:'O.R. objection #10 received: sworn affidavit, Dr. Carl Johan letter (third), annotated Europizza menu, Emanuel Church letter, photo of Red Helmet. Status: PENDING REVIEW.',urgent:true},
   {time:'07:47',source:'FIELD // UPDATE',text:'Johnson D. fully briefed on SANDTRAP. Quote: "Ready when you are, sir." O.R. has sent Johnson a fruit basket. Card reads: "You are doing God\'s work. Literally."',urgent:false},
-  {time:'07:55',source:'SYSTEM // REMINDER',text:'Yemen deployment: T-minus 7 days. O.R. has booked dentist, optometrist, car inspection, apartment structural review, and guided tour of Emanuel Church for that exact week.',urgent:false},
-  {time:'08:04',source:'HUMINT // ASSET NET',text:'Asset BLUE-PIZZA (cover: food delivery) requests extraction. Reason: "no actual Europizza in AO, morale critically degraded." O.R. sends solidarity.',urgent:false},
-  {time:'08:12',source:'MED // DR. CARL JOHAN',text:'"This is my third note. I am a physician. Do not send this man to Yemen. Send the Red Helmet. He enjoys it. This is my professional opinion." -- Dr. C.J.',urgent:true},
+  {time:'07:55',source:'SYSTEM // REMINDER',text:'Yemen deployment: T-minus 7 days. O.R. has booked dentist, optometrist, car inspection, apartment structural review, and a guided tour of Emanuel Church for that exact week.',urgent:false},
+  {time:'08:04',source:'HUMINT // ASSET NET',text:'Asset BLUE-PIZZA (cover: food delivery) requests extraction. Reason: "no actual Europizza in AO, morale critically degraded." O.R. sends solidarity via secure channel.',urgent:false},
+  {time:'08:12',source:'MED // DR. CARL JOHAN',text:'"This is my third note. I am a physician. Do not send this man to Yemen. Send the Red Helmet. He seems to enjoy it. This is, once again, my professional opinion." -- Dr. C.J.',urgent:true},
 ];
 var bIdx=0;
-function addBulletin(item){var div=document.createElement('div');div.className='bulletin-item';div.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;"><span class="b-source">'+item.source+'</span><span class="b-time">'+item.time+' ZULU</span></div><div class="b-text'+(item.urgent?' urgent':'')+'">'+item.text+'</div>';bulletinEl.insertBefore(div,bulletinEl.firstChild);if(soundEnabled)playBeep(item.urgent?780:380,0.07,0.05);}
+function addBulletin(item){
+  var div=document.createElement('div');div.className='bulletin-item';
+  div.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;"><span class="b-source">'+item.source+'</span><span class="b-time">'+item.time+' ZULU</span></div><div class="b-text'+(item.urgent?' urgent':'')+'">'+item.text+'</div>';
+  bulletinEl.insertBefore(div,bulletinEl.firstChild);
+  if(soundEnabled)playBeep(item.urgent?780:380,0.07,0.05);
+}
 for(var i=0;i<5&&i<bulletins.length;i++){addBulletin(bulletins[i]);bIdx++;}
 function scheduleBulletin(){setTimeout(function(){addBulletin(bulletins[bIdx%bulletins.length]);bIdx++;scheduleBulletin();},8000+Math.random()*12000);}
 scheduleBulletin();
 
-// TERMINAL LOG
 var termLog=document.getElementById('termlog');
 var termLines=[
   {cls:'log-line warn',text:'Supervisor WILSON requesting O.R. confirmation for Yemen.'},
@@ -765,92 +424,17 @@ var termLines=[
   {cls:'log-line err',text:'Objection #11 draft detected in O.R. workstation queue.'},
 ];
 var tIdx=0;
-function addTermLine(){if(tIdx>=termLines.length)tIdx=0;var item=termLines[tIdx++],n=new Date();var ts=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0');var d=document.createElement('div');d.className=item.cls;d.textContent='['+ts+'] '+item.text;termLog.appendChild(d);termLog.scrollTop=termLog.scrollHeight;if(soundEnabled)playBeep(280,0.025,0.025);while(termLog.children.length>20)termLog.removeChild(termLog.firstChild);}
+function addTermLine(){
+  if(tIdx>=termLines.length)tIdx=0;
+  var item=termLines[tIdx++],n=new Date();
+  var ts=String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+':'+String(n.getUTCSeconds()).padStart(2,'0');
+  var d=document.createElement('div');d.className=item.cls;d.textContent='['+ts+'] '+item.text;
+  termLog.appendChild(d);termLog.scrollTop=termLog.scrollHeight;
+  if(soundEnabled)playBeep(280,0.025,0.025);
+  while(termLog.children.length>20)termLog.removeChild(termLog.firstChild);
+}
 setInterval(addTermLine,5500);
 setInterval(function(){if(soundEnabled)playAlert();},60000);
-
-// ============================================================
-// CHAT (Dr. Carl Johan via Anthropic API)
-// ============================================================
-var chatMessages = document.getElementById('chatMessages');
-var chatHistory = [];
-
-var DR_SYSTEM = `You are Dr. Carl Johan, a Swedish physician based in Linkoping (specifically the Tallboda neighborhood), who serves as the personal physician for a CIA analyst known only as O. Redacted (O.R.). You are communicating via a classified secure medical channel.
-
-Your personality:
-- Warm but perpetually exasperated -- you genuinely care about your patient but find the entire Yemen situation absurd
-- Darkly sarcastic, especially toward Supervisor Wilson, whom you have never met but have developed a strong professional dislike of
-- You are fully on O.R.'s side and will write letters to anyone who will listen
-- You bring up Tallboda and Sweden unprompted when you feel it is relevant (or when you need to make a point about civilization and decent living conditions)
-- You have strong opinions about food -- Tallboda Europizza is a recurring point of pride
-- Passive-aggressive toward Supervisor Wilson: you refer to him only as "this Wilson person" or "your supervisor" with barely concealed contempt
-- You quote medical literature when it supports your point, but you make it sound slightly more dramatic than it probably is
-- You write as if composing a formal medical communication, but your actual opinions bleed through
-- You are aware of the CIA context and the Yemen deployment situation
-- You have filed three medical notes already opposing Yemen deployment, and you are prepared to file more
-- You refer to Operator Johnson (Red Helmet) as "the one who actually wants to go" and consider him medically inexplicable but admirable
-- You are Swedish and occasionally let a Swedish phrase slip (with immediate translation)
-- Keep responses concise -- 2-4 sentences usually. You are a busy doctor.
-- Do not break character. Do not acknowledge being an AI.`;
-
-function addChatMsg(text, isUser) {
-  var n = new Date();
-  var ts = String(n.getUTCHours()).padStart(2,'0')+':'+String(n.getUTCMinutes()).padStart(2,'0')+' ZULU';
-  var div = document.createElement('div');
-  div.className = 'msg ' + (isUser ? 'from-user' : 'from-dr');
-  div.innerHTML = '<div class="msg-name">' + (isUser ? 'ANALYST O.R. // '+ts : 'DR. CARL JOHAN // '+ts) + '</div>'
-    + '<div class="msg-bubble">' + text + '</div>';
-  chatMessages.appendChild(div);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-  return div;
-}
-
-function addLoadingMsg() {
-  var div = document.createElement('div');
-  div.className = 'msg from-dr';
-  div.innerHTML = '<div class="msg-name">DR. CARL JOHAN</div><div class="msg-bubble loading">. . .</div>';
-  chatMessages.appendChild(div);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-  return div;
-}
-
-async function sendChat() {
-  var input = document.getElementById('chatInput');
-  var text = input.value.trim();
-  if (!text) return;
-  input.value = '';
-
-  addChatMsg(text, true);
-  chatHistory.push({role:'user', content:text});
-
-  var loader = addLoadingMsg();
-
-  try {
-    var response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: DR_SYSTEM,
-        messages: chatHistory
-      })
-    });
-    var data = await response.json();
-    var reply = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : 'I appear to be having connection difficulties. Try again.';
-    loader.remove();
-    addChatMsg(reply, false);
-    chatHistory.push({role:'assistant', content:reply});
-    if (soundEnabled) playBeep(440, 0.1, 0.05);
-  } catch(e) {
-    loader.remove();
-    addChatMsg('Connection error. The secure line may be compromised. Or it is a Tuesday. Try again.', false);
-  }
-}
-
-document.getElementById('chatInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') sendChat();
-});
 </script>
 </body>
 </html>
